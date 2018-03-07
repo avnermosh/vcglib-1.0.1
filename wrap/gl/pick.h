@@ -28,6 +28,8 @@
 #include <algorithm>
 #include "gl_type_name.h"
 
+// #define AVNER_CHANGES3
+
 namespace vcg{
 
 template <class MESH_TYPE>
@@ -205,6 +207,10 @@ public:
     return result.size();
   }
 
+
+#ifdef AVNER_CHANGES3
+#else
+     
   // Same of above but it also assumes that you want only visible faces.
   // Visibility is computed according to the current depth buffer.
   static int PickVisibleFace(int x, int y, MESH_TYPE &m, std::vector<FacePointer> &resultZ, int width=4, int height=4)
@@ -419,6 +425,7 @@ public:
         delete [] selectBuf;
         return result.size();
     }
+#endif
 
 };
 
